@@ -7,7 +7,7 @@ Usage
 -----
 Includes 3 default entities: & < >
 
-Add more HTML entities with HTMLEntityUtil.AddHtmlEntity(ENTITY, CHARACTER)
+Add more HTML entities with `HTMLEntityUtil.AddHtmlEntity(ENTITY, CHARACTER)`
 ```javascript
 HTMLEntityUtil.AddHtmlEntity('&quot;','"',); // "
 HTMLEntityUtil.AddHtmlEntity('&#x27;',"'"); // '
@@ -19,7 +19,7 @@ HTMLEntityUtil will attempt to autodetect the unescaped entity if only the entit
 HTMLEntityUtil.AddHtmlEntity('&raquo;'); // »
 ```
 
-HTMLEntityUtil also extends JavaScript String objects with .getDecodedHTML() and .getEncodedHTML()
+HTMLEntityUtil also extends JavaScript String objects with `.getDecodedHTML()` and `.getEncodedHTML()`
 ```javascript
 'Home &raquo; News &amp; Blogs'.getDecodedHTML(); // 'Home » News & Blogs'
 
