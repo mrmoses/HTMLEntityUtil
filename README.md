@@ -9,19 +9,19 @@ Includes 3 default entities: & < >
 
 Add more HTML entities with HTMLEntityUtil.AddHtmlEntity(ENTITY, CHARACTER)
 ```javascript
-HTMLEntityUtil.AddHtmlEntity('&quot;','"',);
-HTMLEntityUtil.AddHtmlEntity('&#x27;',"'");
-HTMLEntityUtil.AddHtmlEntity('&#x2F;','/');
+HTMLEntityUtil.AddHtmlEntity('&quot;','"',); // "
+HTMLEntityUtil.AddHtmlEntity('&#x27;',"'"); // '
+HTMLEntityUtil.AddHtmlEntity('&#x2F;','/'); // /
 ```
 
 HTMLEntityUtil will attempt to autodetect the unescaped entity if only the entity is provided.
 ```javascript
-HTMLEntityUtil.AddHtmlEntity('&raquo;');
+HTMLEntityUtil.AddHtmlEntity('&raquo;'); // »
 ```
 
 HTMLEntityUtil also extends JavaScript String objects with .getDecodedHTML() and .getEncodedHTML()
 ```javascript
-'&raquo;'.getDecodedHTML(); // »
+'Home &raquo; News &amp; Blogs'.getDecodedHTML(); // 'Home » News & Blogs'
 
-'&'.getEncodedHTML(); // &amp;
+'News & Blogs <Read It Here>'.getEncodedHTML(); // 'News &amp; Blogs &lt;Read It Here&gt;'
 ```
