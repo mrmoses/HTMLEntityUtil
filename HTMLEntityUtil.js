@@ -7,7 +7,9 @@ var HTMLEntityUtil = (function() {
         getEntityCharacter: function(entity) {
             var d = document.createElement("div");
             d.innerHTML = entity;
-            return d.innerText;
+            // Chrome works with innerText
+            // Firefox innerText is null, but innerHTML contains the charcter (tested with &raquo;)
+            return d.innerText ? d.innerText : d.innerHTML;
         }
     };
 
@@ -45,7 +47,7 @@ var HTMLEntityUtil = (function() {
         SELF.AddHtmlEntity('&lt;','<');
         SELF.AddHtmlEntity('&gt;','>');
     })();
-	return this;
+    return this;
 })();
 
 /** @returns {String} Escapes special characters into HTML entities. */
