@@ -28,8 +28,11 @@ var HTMLEntityUtil = (function() {
     };
 
     this.RemoveHTMLEntities = function(s) {
-        return s.replace(/&([^\s;]*);/g,function(c) {
-            return _private.HTMLEntites[c].character || c;
+        return s.replace(/&([^\s;]*);/g, function (c) {
+            if (_private.HTMLEntites[c]) {
+                return _private.HTMLEntites[c].character || c;
+            }
+            return c;
         });
     };
 
