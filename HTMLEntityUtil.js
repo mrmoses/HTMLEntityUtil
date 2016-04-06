@@ -28,8 +28,7 @@ var HTMLEntityUtil = (function() {
     };
 
     this.RemoveHTMLEntities = function(s) {
-        var re = new RegExp('[&(*^;);]','gi');
-        return s.replace(/&([^;]*);/g,function(c) {
+        return s.replace(/&([^\s;]*);/g,function(c) {
             return _private.HTMLEntites[c].character || c;
         });
     };
